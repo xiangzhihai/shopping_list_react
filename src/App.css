@@ -1,21 +1,112 @@
+/* Centers the entire app content both vertically and horizontally */
+.App {
+  text-align: center; /* Centers text within elements inside .App */
+  display: flex; /* Enables Flexbox for easy centering */
+  flex-direction: column; /* Stacks content vertically (header, input, dropdown) */
+  justify-content: center; /* Centers content vertically within the viewport */
+  align-items: center; /* Centers content horizontally within the viewport */
+  min-height: 100vh; /* Makes .App take up the full height of the viewport */
+}
+
+/* Wrapper for input and dropdown to ensure dropdown appears below input */
+.input-wrapper {
+  position: relative; /* Sets a local positioning context for dropdown */
+  width: 100%; /* Makes wrapper width match the input width */
+  max-width: 300px; /* Optional: limits width of input and dropdown */
+}
+
+/* Styles the dropdown list that appears below the input */
 .dropdown {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  background-color: white;
-  border: 1px solid #ddd;
-  max-height: 150px;
-  width: 100%;
-  overflow-y: auto;
-  z-index: 1;
+  list-style-type: none; /* Removes default bullet points from list items */
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+  position: absolute; /* Positions dropdown relative to .input-wrapper */
+  top: 100%; /* Places dropdown directly below input */
+  left: 0; /* Aligns dropdown to the left edge of input */
+  background-color: white; /* Sets dropdown background color to white */
+  border: 1px solid #ddd; /* Adds a light gray border around the dropdown */
+  max-height: 150px; /* Limits dropdown height to prevent it from expanding too much */
+  width: 100%; /* Matches dropdown width to input width */
+  overflow-y: auto; /* Adds scroll if dropdown items exceed max height */
+  z-index: 1; /* Ensures dropdown appears above other elements */
 }
 
+/* Styles each item in the dropdown list */
 .dropdown-item {
-  padding: 8px;
-  cursor: pointer;
+  padding: 8px; /* Adds padding around each item for better readability */
+  cursor: pointer; /* Changes cursor to pointer when hovering over items */
 }
 
+/* Changes background color when hovering over an item in the dropdown */
 .dropdown-item:hover {
-  background-color: #f0f0f0;
+  background-color: #f0f0f0; /* Light gray background on hover */
 }
+
+/* Styles the shopping list container */
+.shopping-list {
+  list-style-type: none; /* Removes default bullet points from list items */
+  padding: 0; /* Removes default padding */
+  margin-top: 20px; /* Adds space above the shopping list */
+  width: 100%; /* Matches shopping list width to input width */
+}
+
+/* Styles each entry in the shopping list */
+.shopping-list-item-entry {
+  display: flex; /* Arranges elements (buttons, text) in a row */
+  align-items: center; /* Centers items vertically within the entry */
+  justify-content: space-between; /* Adds space between the buttons and text */
+  padding: 8px; /* Adds padding around each entry for readability */
+  border-bottom: 1px solid #ddd; /* Adds a light gray line between entries */
+  max-width: 300px; /* Optional: limits width of each entry */
+}
+
+/* Styles the check and delete buttons in each list entry */
+.shopping-list-item-entry button {
+  background: none; /* Removes default button background */
+  border: none; /* Removes default button border */
+  font-size: 18px; /* Increases font size for better visibility */
+  cursor: pointer; /* Changes cursor to pointer when hovering over buttons */
+}
+
+/* Styles the check button (first button in each entry) */
+.shopping-list-item-entry button:first-of-type {
+  color: green; /* Sets the check button color to green */
+}
+
+/* Styles the delete button (second button in each entry) */
+.shopping-list-item-entry button:last-of-type {
+  color: red; /* Sets the delete button color to red */
+}
+
+/* Styles the list item text in each shopping list entry */
+.shopping-list-item-entry li {
+  flex-grow: 1; /* Allows the text to expand and fill available space */
+  text-align: left; /* Aligns text to the left within the entry */
+  margin-left: 10px; /* Adds space between the text and the check button */
+}
+
+/* Wrapper for the header and input to make them fixed at the top */
+.header-container {
+  position: fixed; /* Fixes the header and input at the top of the viewport */
+  top: 0; /* Aligns it to the top of the page */
+  width: 100%; /* Makes the header span the full width of the viewport */
+  background-color: white; /* Optional: sets a background color to cover any underlying content */
+  padding: 20px; /* Adds padding around the header and input */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow to distinguish the header from the content */
+  z-index: 2; /* Ensures the header appears above other content */
+  text-align: center; /* Centers text within the header */
+}
+
+/* Adds space below the fixed header so content doesn't overlap */
+.content-container {
+  margin-top: 100px; /* Adjust this value to match the height of the fixed header */
+}
+
+.input-wrapper {
+  position: relative; /* Keeps dropdown relative to input */
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto; /* Centers the input within the header */
+}
+
+/* Other existing styles remain the same */
